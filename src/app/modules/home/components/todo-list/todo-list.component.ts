@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskList } from '../../model/task-list';
 
 @Component({
   selector: 'app-todo-list',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoListComponent implements OnInit {
 
+  taskList: TaskList[] = [
+    { task: 'Minha nova task', checked: true },
+    { task: 'Isso é um teste', checked: false },
+    { task: 'Terceira Task', checked: true },
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  deleteItemTaskList(taskPosition: number) {
+    this.taskList.splice(taskPosition, 1);
+  }
+
+  deleteAll() {
+    const confirm = window.confirm('Você realmente deseja deletar tudo?')
+    if (confirm) {
+      this.taskList = [];
+    }
+  }
 }
