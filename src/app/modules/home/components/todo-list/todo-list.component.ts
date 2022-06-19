@@ -27,6 +27,9 @@ export class TodoListComponent implements OnInit {
 		this.taskList.splice(taskPosition, 1);
 	}
 
+	ngDoCheck() {
+		this.taskList.sort((first: any, last: any) => Number(first.checked) - Number(last.checked));
+	}
 
 	deleteAll() {
 		const confirm = window.confirm('Você realmente deseja deletar tudo?');
@@ -34,4 +37,14 @@ export class TodoListComponent implements OnInit {
 			this.taskList = [];
 		}
 	}
+
+	validationInput(event: string, index: number) {
+		if (!event.length) {
+			const confirm = window.confirm('Task está vazia, dejesa deletar?');
+			if (confirm) {
+				this.deleteItemTaskList(index);
+			}
+		}
+	}
+
 }

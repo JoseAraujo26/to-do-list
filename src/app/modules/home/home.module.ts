@@ -10,16 +10,16 @@ import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [
-    HeaderComponent,
-    TodoButtonDeleteAllComponent,
-    TodoInputAddItensComponent,
-    TodoListComponent,
-    HomeComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule
-  ]
+	declarations: [
+		HeaderComponent,
+		TodoButtonDeleteAllComponent,
+		TodoInputAddItensComponent,
+		TodoListComponent,
+		HomeComponent
+	],
+	imports: [
+		CommonModule,
+		FormsModule
+	]
 })
 export class HomeModule { }
